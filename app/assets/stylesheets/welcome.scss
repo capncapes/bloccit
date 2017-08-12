@@ -1,0 +1,16 @@
+.social-btn {
+    font-family: "Bebas Neue", Helvetica, sans-serif;
+    padding: 5px 20px;
+    color: #fff;
+    background: linear-gradient(180deg, #DD4B39, #BB2D17);
+    border: none;
+    border-radius: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.social-btn:hover {
+    background: linear-gradient(0deg, #DD4B39, #BB2D17);
+    text-decoration: none;
+    color: #fff;
+}
