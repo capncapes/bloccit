@@ -25,6 +25,11 @@ posts = Post.all
     )
 end
 
+Post.find_or_create_by(title: 'Do geese see God?', body: 'Somebody should ask the geese, or we\'ll never know.')
+
+geese_title = Post.find_by title: 'Do geese see God?'
+Comment.find_or_create_by(body: 'Did Hannah see bees? Hannah did.', post_id: geese_title.id)
+
 puts "Seed finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
