@@ -1,0 +1,10 @@
+<h1>All Ads</h1>
+<% @advertisements.each do |ad| %>
+    <div class="media">
+        <div class="media-body">
+            <h4 class="media-heading">
+                <p class="row"><span class=col-md-1><%= number_to_currency(ad.price, precision: 2) %></span>&nbsp;<span><%= link_to ad.title, ad %></span></p>
+            </h4>
+        </div>
+    </div>
+<% end %>
