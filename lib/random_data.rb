@@ -18,9 +18,23 @@ module RandomData
         sentence.capitalize << "."
     end
     
+    def self.random_question
+        q = []
+        rand(3..8).times do
+            q << random_word
+        end
+        
+        question = q.join(" ")
+        question.capitalize << "?"
+    end
+    
     def self.random_word
         letters = ('a'..'z').to_a
         letters.shuffle!
         letters[0, rand(3..8)].join
+    end
+    
+    def self.random_bool
+        ["0", "1"].sample
     end
 end

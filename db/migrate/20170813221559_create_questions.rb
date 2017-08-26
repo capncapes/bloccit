@@ -3,8 +3,7 @@ class CreateQuestions < ActiveRecord::Migration[5.1]
     create_table :questions do |t|
       t.string :title
       t.text :body
-      t.string :resolved
-      t.string :boolean
+      t.boolean :resolved
 
       t.timestamps
     end

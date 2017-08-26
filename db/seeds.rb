@@ -25,6 +25,16 @@ posts = Post.all
     )
 end
 
+# Create Questions
+50.times do
+    Question.create!(
+        title: RandomData.random_question,
+        body: RandomData.random_paragraph,
+        resolved: RandomData.random_bool
+    )
+end
+
 puts "Seed finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
+puts "#{Question.count} questions created"
