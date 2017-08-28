@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170813225904) do
+ActiveRecord::Schema.define(version: 20170827182504) do
 
   create_table "answers", force: :cascade do |t|
     t.text "body"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 20170813225904) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "topic_id"
+    t.index ["topic_id"], name: "index_posts_on_topic_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -40,6 +42,14 @@ ActiveRecord::Schema.define(version: 20170813225904) do
     t.text "body"
     t.string "resolved"
     t.string "boolean"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string "name"
+    t.boolean "public", default: true
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
