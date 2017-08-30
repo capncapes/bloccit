@@ -16,3 +16,15 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+footer.container {
+    height: 50px;
+    color: #337AB7;
+}
+
+footer.container img.img-fluid {
+    margin: 2rem 0 0 0;
+    max-width: 100%;
+    height: 42px;
+    text-align: center;
+}
