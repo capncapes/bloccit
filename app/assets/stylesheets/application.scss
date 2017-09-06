@@ -16,3 +16,16 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.container {
+    margin-top: 2rem;
+}
+
+.acct {
+    margin-right: 2rem;
+    text-align: right;
+}
+
+.acct small {
+    text-transform: uppercase;
+}
