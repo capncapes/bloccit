@@ -1,7 +1,7 @@
 class Comment < ApplicationRecord
   belongs_to :post
+  belongs_to :user
   
-  def my_name
-      "Brandon"
-  end
+  validates :body, length: { minimum: 5 }, presence: true
+  validates :user, presence: true
 end
