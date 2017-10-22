@@ -12,7 +12,13 @@
     <div class="col-md-8">
         <p><%= @post.body %></p>
         <div class="container-fluid">
-            <h4>Comments</h4>
+            <h4>
+                <% if @post.comments.count == 0 %>
+                    No Comments
+                <% else %>
+                    Comments
+                <% end %>
+            </h4>
             <%= render @post.comments %>
             <% if current_user %>
                 <%= render 'comments/form', comment: Comment.new, post: @post %>
@@ -35,5 +41,8 @@
                 </small>
             </div>
         </h3>
+        <% if current_user %>
+            <%= render partial: 'favorites/favorite', locals: { post: @post } %>
+        <% end %>
     </div>
 </div>
