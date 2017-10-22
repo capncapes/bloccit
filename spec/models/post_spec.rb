@@ -74,8 +74,8 @@ RSpec.describe Post, type: :model do
             end
         end
         
-        describe "#after_create" do
-            it "set post up_votes to 1" do
+        describe "#create_vote" do
+            it "sets post up_votes to 1" do
                 expect(post.up_votes).to eq(@up_votes)
             end
             

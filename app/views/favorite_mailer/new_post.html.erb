@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    </head>
+    <body>
+        <h1>You are now following the post "<%= @post.title %>"!</h1>
+        <small>
+            By: <%= @post.user.name %>
+        </small>
+        <p style="margin: 30px; background-color: #337ab7; color: #fff;">
+            <%= @post.body %>
+        </p>
+        <p>If you do not wish to receive further notifications, please <%= link_to "unfavorite the post", topic_post_url(@post.topic, @post %>.</p>
+        <%= link_to "View Post on Site", topic_post_url(@post.topic, @post) %>
+    </body>
+</html>

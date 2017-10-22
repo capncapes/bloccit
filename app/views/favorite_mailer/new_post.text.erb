@@ -1,0 +1,12 @@
+You are now following the post "<%= @post.title %>".
+<%= "=" * (@post.title.length + 12) %>
+
+By: <%= @post.user.name %>
+
+-----------
+<%= @post.body %>
+-----------
+
+If you do not wish to receive further notifications, please unfavorite the post at the link below.
+
+View online at: <%= topic_post_url(@post.topic, @post) %>
