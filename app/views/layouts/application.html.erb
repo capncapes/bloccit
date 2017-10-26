@@ -19,7 +19,7 @@
         <% if current_user %>
           <div class="pull-right"><%= image_tag avatar_url(current_user) %></div>
           <div class="acct pull-right">
-            <%= link_to "#{current_user.name}", session_path(current_user), method: :delete %><br/>
+            <%= link_to "#{current_user.name}", user_path(current_user) %><br/>
             <small><%= link_to "Sign Out", session_path(current_user), method: :delete, class: 'text-muted' %></small>
           </div>
         <% else %>
