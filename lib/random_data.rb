@@ -44,6 +44,10 @@ module RandomData
         letters[0, rand(3..8)].join
     end
     
+    def self.random_number
+        rand(100)
+    end
+    
     def self.random_bool
         ["0", "1"].sample
     end
