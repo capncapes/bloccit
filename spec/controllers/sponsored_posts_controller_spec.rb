@@ -66,6 +66,10 @@ RSpec.describe SponsoredPostsController, type: :controller do
   end
   
   context "member user" do
+    before :each do
+      create_session(my_user)
+    end
+    
     describe "GET #show" do
       it "returns http success" do
         get :show, params: { topic_id: my_topic.id, id: my_sponsored_post.id }
@@ -93,7 +97,7 @@ RSpec.describe SponsoredPostsController, type: :controller do
     describe "POST create" do
       it "returns http redirect" do
         post :create, params: { topic_id: my_topic.id, sponsored_post: { title: RandomData.random_sentence, body: RandomData.random_paragraph, price: RandomData.random_number } }
-        expect(response).to redirect_to([my_topic, my_sponsored_post])
+        expect(response).to redirect_to(my_topic)
       end
     end
     
@@ -165,7 +169,7 @@ RSpec.describe SponsoredPostsController, type: :controller do
 
     describe "POST create" do
       it "increases the number of SponsoredPost by 1" do
-        expect{ post :create, params: { topic_id: my_topic.id, id: my_sponsored_post.id, sponsored_post: { title: RandomData.random_sentence, body: RandomData.random_paragraph, price: RandomData.random_number } } }.to change(SponsoredPost, :count).by(1)
+        expect{ post :create, params: { topic_id: my_topic.id, sponsored_post: { title: RandomData.random_sentence, body: RandomData.random_paragraph, price: RandomData.random_number } } }.to change(SponsoredPost, :count).by(1)
       end
 
       it "assigns the new sponsored post to @sponsored_post" do

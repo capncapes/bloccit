@@ -1,5 +1,6 @@
 class SponsoredPostsController < ApplicationController
   before_action :require_sign_in, except: :show
+  before_action :find_topic
   before_action :authorize_user, except: :show
   
   def show
@@ -7,12 +8,10 @@ class SponsoredPostsController < ApplicationController
   end
 
   def new
-    @topic = Topic.find(params[:topic_id])
     @sponsored_post = SponsoredPost.new
   end
   
   def create
-    @topic = Topic.find(params[:topic_id])
     @sponsored_post = @topic.sponsored_posts.build(sponsored_post_params)
     
     if @sponsored_post.save
@@ -25,7 +24,6 @@ class SponsoredPostsController < ApplicationController
   end
 
   def edit
-    @topic = Topic.find(params[:topic_id])
     @sponsored_post = SponsoredPost.find(params[:id])
   end
   
@@ -60,11 +58,15 @@ class SponsoredPostsController < ApplicationController
     params.require(:sponsored_post).permit(:title, :body, :price)
   end
   
+  def find_topic 
+    @topic = Topic.find(params[:topic_id])
+  end
+  
   def authorize_user
-    sponsored_post = SponsoredPost.find(params[:id])
+    @sponsored_post = SponsoredPost.where(id: params[:id]).first
     unless current_user.admin?
       flash[:alert] = "You must be an admin to do that."
-      redirect_to(sponsored_post.topic)
+      redirect_to([@topic, @sponsored_post])
     end
   end
 end
