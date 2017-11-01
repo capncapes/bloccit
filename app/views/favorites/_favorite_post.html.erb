@@ -1,0 +1,19 @@
+<div class="media">
+    <% other_post = Post.find(@user.favorites.first.post_id) %>
+    <% other_user = other_post.user %>
+    <% avatar_url = other_user.avatar_url(40) %>
+    <% if avatar_url %>
+        <div class="media-left">
+            <%= image_tag avatar_url, class: 'media-object' %>
+        </div>
+    <% end %>
+    <div class="media-body">
+        <h4 class="media-heading">
+            <%= link_to other_post.title, topic_post_path(other_post.topic, other_post) %>
+        </h4>
+        <small>
+            submitted <%= time_ago_in_words(other_post.created_at) %> ago by <%= other_post.user.name %> <br>
+            <%= other_post.comments.count %> Comments
+        </small>
+    </div>
+</div>
