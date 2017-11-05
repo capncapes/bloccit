@@ -17,12 +17,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.container {
+.container, .jumbotron {
     margin-top: 2rem;
 }
 
 .jumbotron {
-    background: linear-gradient(30deg, #eeeeee, #7f7f7f);
+    background: linear-gradient(30deg, #eeeeee, #337ab7);
 }
 
 .acct {
@@ -36,4 +36,10 @@
 
 .nav .gravatar img {
     border-radius: 4px 4px 0 0;
+}
+
+footer {
+    margin: 5rem 0 0 0;
+    padding: 1rem 0;
+    text-align: center;
 }

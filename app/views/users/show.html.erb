@@ -20,11 +20,17 @@
     </div>
 </div>
 
-<h3><%= user_posts(@user) %></h3>
-<%= render @user.posts %>
-
-<h3><%= user_comments(@user) %></h3>
-<%= render @user.comments %>
-
-<h3>Favorited Posts</h3>
-<%= render partial: 'favorites/favorite_post', collection: @user.favorites, as: :favorite %>
+<div class="row">
+    <div class="col-md-4">
+        <h3><%= user_posts(@user) %></h3>
+        <%= render @user.posts %>
+    </div>
+    <div class="col-md-4">
+        <h3><%= user_comments(@user) %></h3>
+        <%= render @user.comments %>
+    </div>
+    <div class="col-md-4">
+        <h3>Favorited Posts</h3>
+        <%= render partial: 'favorites/favorite_post', collection: @user.favorites, as: :favorite %>
+    </div>
+</div>
