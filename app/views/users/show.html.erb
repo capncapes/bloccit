@@ -2,10 +2,10 @@
     <div class="col-md-8">
         <div class="media">
             <br />
-            <% avatar_url = @user.avatar_url(128) %>
-            <% if avatar_url %>
+            <% avatar = gravatar_url(@user, 128) %>
+            <% if avatar %>
                 <div class="media-left">
-                    <%= image_tag avatar_url, class: 'media-object' %>
+                    <%= image_tag avatar, class: 'media-object gravatar' %>
                 </div>
             <% end %>
             <div class="media-body">
@@ -27,4 +27,4 @@
 <%= render @user.comments %>
 
 <h3>Favorited Posts</h3>
-<%= render 'favorites/favorite_post' %>
+<%= render partial: 'favorites/favorite_post', collection: @user.favorites, as: :favorite %>
